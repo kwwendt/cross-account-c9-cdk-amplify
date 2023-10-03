@@ -73,9 +73,11 @@ cdk bootstrap
 ```
 
 The bootstrap process should success with a message similar to:
+
 ```
 CDKToolkit: creating CloudFormation changeset...
  ✅  Environment aws://<account A ID>/<region> bootstrapped.
+```
 
  4. Deploy AWS Cloud9 resources by running the following command. Enter in the Owner ARN who should be able to access this machine. Confirm the deployment by typing `y` when prompted. Ex: arn:aws:iam::<account B ID>:assumed-role/admin/testuser
 
