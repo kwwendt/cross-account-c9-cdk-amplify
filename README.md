@@ -111,13 +111,6 @@ credential_source = Ec2InstanceMetadata
 role_session_name = testuser
 region = <region>
 output = json
-
-[profile CdkDeploy]
-role_arn = arn:aws:iam::<account A ID>:role/cdk-hnb659fds-deploy-role-<account A ID>-<region>
-credential_source = Ec2InstanceMetadata
-role_session_name = testuser
-region = <region>2
-output = json
 ```
 
 4. Clone the repository (first from GitHub) then update the origin to AWS CodeCommit. Push code changes to repo.

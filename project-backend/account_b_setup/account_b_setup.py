@@ -1,4 +1,5 @@
 import os
+import json
 from aws_cdk import (
     Stack,
     Duration,
@@ -86,9 +87,11 @@ class AccountBStack(Stack):
                 parameters={
                     "FunctionName": lambda_func.function_name,
                     "InvocationType": "Event",
-                    "EnvironmentId": cloud9_env.ref,
-                    "InstanceProfileName": cloud9_instance_profile.instance_profile_name,
-                    "InstanceProfileArn": cloud9_instance_profile.instance_profile_arn,
+                    "Payload": json.dumps({
+                        "EnvironmentId": cloud9_env.ref,
+                        "InstanceProfileName": cloud9_instance_profile.instance_profile_name,
+                        "InstanceProfileArn": cloud9_instance_profile.instance_profile_arn
+                    })
                 },
                 physical_resource_id=cr.PhysicalResourceId.of("AssociateInstanceProfileCR")
             )
