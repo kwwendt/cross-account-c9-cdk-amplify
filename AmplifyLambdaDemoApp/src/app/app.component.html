@@ -1,0 +1,19 @@
+<amplify-authenticator [signUpAttributes]="['email']">
+  <ng-template
+    amplifySlot="authenticated"
+    let-user="user"
+    let-signOut="signOut"
+  >
+    <h1>Welcome {{ user.username }}!</h1>
+    <button (click)="signOut()">Sign Out</button>
+    <div class="container">
+      <div class="input-group">
+          <label for="echoText">Text to echo</label>
+          <input #echoText type="text"/>
+          <button (click)="echo(echoText.value)">Echo Text</button>
+      </div>
+      <h3>Echo message: {{ responseText }}</h3>
+      <button (click)="clear()">Clear</button>
+    </div>
+  </ng-template>
+</amplify-authenticator>
