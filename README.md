@@ -120,7 +120,7 @@ git clone https://github.com/kwwendt/cross-account-c9-cdk-amplify.git
 cd ~/environment/cross-account-c9-cdk-amplify
 rm -rf .git
 cd ~/environment/cross-account-c9-cdk-amplify/AmplifyLambdaDemoApp
-git init
+git init -b main
 git remote add origin codecommit://CrossAccount@AmplifyLambdaDemoApp
 git add .
 git commit -m "Push initial changes."

@@ -20,6 +20,7 @@ class AccountAStack(Stack):
         )
 
         cross_account_role = iam.Role(self, "CrossAccountContributorRole",
+            role_name="CrossAccountContributorRole",
             assumed_by=iam.AccountPrincipal(account_b_id.value)
         )
         cross_account_role.add_to_policy(iam.PolicyStatement(
