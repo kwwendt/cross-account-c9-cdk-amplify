@@ -127,10 +127,11 @@ git commit -m "Push initial changes."
 git push origin main
 ```
 
-5. Prepare scripts
+5. Prepare scripts and install packages.
 
 ```
 cd ~/environment/cross-account-c9-cdk-amplify/project-backend
+pip3 install -r requirements.txt
 chmod +x scripts/cdk-deploy-to.sh
 chmod +x scripts/cdk-destroy.sh
 ```
