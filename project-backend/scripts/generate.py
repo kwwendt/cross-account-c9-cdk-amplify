@@ -39,6 +39,6 @@ config_string = """
     export default awsmobile;
 """ % (region, user_pool_id, user_pool_client_id, branch_name, api_url, region)
 
-config_file = open("/home/ubuntu/environment/AmplifyLambdaDemoApp/src/aws-exports.js", 'w')
+config_file = open("/home/ubuntu/environment/cross-account-c9-cdk-amplify/AmplifyLambdaDemoApp/src/aws-exports.js", 'w')
 config_file.write(config_string)
 config_file.close()

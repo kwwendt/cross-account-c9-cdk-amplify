@@ -105,6 +105,13 @@ touch ~/.aws/config
 region = <region>
 output = json
 
+[profile CdkDeploy]
+role_arn = arn:aws:iam::<account A ID>:role/cdk-hnb659fds-deploy-role-<account A ID>-<region>
+credential_source = Ec2InstanceMetadata
+role_session_name = testuser
+region = <region>
+output = json
+
 [profile CrossAccount]
 role_arn = arn:aws:iam::<account A ID>:role/CrossAccountContributorRole
 credential_source = Ec2InstanceMetadata
