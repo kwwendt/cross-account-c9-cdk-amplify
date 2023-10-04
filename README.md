@@ -160,5 +160,20 @@ git commit -m "Updated main branch code"
 git push origin main
 
 cd ~/environment/cross-account-c9-cdk-amplify/project-backend
-./scripts/cdk-deploy-to.sh <account A ID> <region> AmplifyAppStack --parameters RepoName=AmplifyLambdaDemoApp
+export CDK_DEPLOY_ACCOUNT=<account A ID>
+export CDK_DEPLOY_REGION=<region>
+cdk deploy AmplifyAppStack --parameters RepoName=AmplifyLambdaDemoApp
 ```
+
+## Clean up
+
+In the Cloud9 environment run the following and confirm the deletion of resources when prompted.
+
+```
+cd ~/environment/cross-account-c9-cdk-amplify/project-backend
+./scripts/cdk-destroy.sh <account A ID> <region> BackendAmplifyAppStack-main AmplifyAppStack -c branch_name=main
+```
+
+In the same account (Account B), navigate to the CloudFormation console and delete the `AccountBStack`. You can also delete the `CDKToolKit` stack.
+
+In Account A, navigate to the CloudFormation console and delete the `AccountAStack`. You can also delete the `CDKToolKit` stack.
