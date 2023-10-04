@@ -3,6 +3,7 @@ import json
 from aws_cdk import (
     Stack,
     Duration,
+    CfnOutput,
     CfnParameter,
     aws_iam as iam,
     aws_cloud9 as cloud9,
@@ -31,6 +32,7 @@ class AccountBStack(Stack):
         cloud9_role.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AdministratorAccess"))
 
         cloud9_instance_profile=iam.InstanceProfile(self, "Cloud9InstanceProfile",
+            instance_profile_name="Cloud9Role",
             role=cloud9_role
         )
 
@@ -49,6 +51,7 @@ class AccountBStack(Stack):
             code=_lambda.Code.from_asset("lambda/cloud9-config"),
             timeout=Duration.seconds(400)
         )
+        
         lambda_func.add_to_role_policy(iam.PolicyStatement(
             effect=iam.Effect.ALLOW,
             actions=[
@@ -97,3 +100,6 @@ class AccountBStack(Stack):
             )
         )
         
+        CfnOutput(self, "LambdaRole", value=lambda_func.role.role_arn)
+        CfnOutput(self, "InstanceProfileArn", value=cloud9_instance_profile.instance_profile_arn)
+        CfnOutput(self, "InstanceProfileName", value=cloud9_instance_profile.instance_profile_name)
