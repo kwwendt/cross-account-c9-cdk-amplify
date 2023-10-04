@@ -171,7 +171,7 @@ In the Cloud9 environment run the following and confirm the deletion of resource
 
 ```
 cd ~/environment/cross-account-c9-cdk-amplify/project-backend
-./scripts/cdk-destroy.sh <account A ID> <region> BackendAmplifyAppStack-main AmplifyAppStack -c branch_name=main
+./scripts/cdk-destroy.sh <account A ID> <region> BackendInfraStack-main AmplifyAppStack -c branch_name=main
 ```
 
 In the same account (Account B), navigate to the CloudFormation console and delete the `AccountBStack`. You can also delete the `CDKToolKit` stack.
