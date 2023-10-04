@@ -159,5 +159,6 @@ git add .
 git commit -m "Updated main branch code"
 git push origin main
 
+cd ~/environment/cross-account-c9-cdk-amplify/project-backend
 ./scripts/cdk-deploy-to.sh <account A ID> <region> AmplifyAppStack --parameters RepoName=AmplifyLambdaDemoApp
 ```
